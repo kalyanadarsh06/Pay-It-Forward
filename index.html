@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pay It Forward ($PIF)</title>
+  <meta name="description" content="Pay It Forward ($PIF): every trade pays a small fee onto a virtual card. Holders pick any cause with an online donation page, and our agents pay it in a browser you can watch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hero" id="top">
+    <nav class="topbar">
+      <a class="brand" href="#top" aria-label="Pay It Forward home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </span>
+        <span class="brand-name">PAY IT FORWARD</span>
+      </a>
+      <div class="nav-pill" role="navigation" aria-label="Sections">
+        <a class="nav-item is-active" href="#impact">Impact</a>
+        <a class="nav-item" href="#protocol">How It Works</a>
+        <a class="nav-item" href="#treasury">Fees</a>
+        <a class="nav-item" href="#connect">Join</a>
+      </div>
+    </nav>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 class="hero-title">Trading<br>Gives Back.</h1>
+        <p class="hero-sub">Every time someone buys or sells $PIF, a small fee goes onto a virtual card. Holders pick the causes. Our agents make every payment in a browser you can watch.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#connect">Pick Your Cause <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></a>
+          <a class="btn btn-light" href="#protocol">How It Works</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="capsule">
+          <svg class="wave" viewBox="0 0 500 700" preserveAspectRatio="none">
+            <defs>
+              <radialGradient id="glow" cx="45%" cy="22%" r="80%">
+                <stop offset="0%" stop-color="#f6e2a6"/>
+                <stop offset="60%" stop-color="#f0d083"/>
+                <stop offset="100%" stop-color="#e9c06a"/>
+              </radialGradient>
+            </defs>
+            <rect width="500" height="700" fill="url(#glow)"/>
+            <path d="M 58 636 L 58 430 C 58 330 140 282 288 276 C 400 272 462 232 500 140 L 500 636 Z" fill="#3b1e14"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="sheet">
+    <!-- ======================= IMPACT ======================= -->
+    <section class="section" id="impact">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">LIFETIME IMPACT</p>
+          <h2 class="section-title">The Leaderboard</h2>
+          <p class="section-lede" id="board-lede">How much each cause has received so far. Tap a cause to see the holders behind it.</p>
+        </div>
+        <div class="feed">
+          <p class="eyebrow" id="feed-label">SAMPLE DATA</p>
+          <p class="feed-rate"><span class="dot" aria-hidden="true"></span><span id="holders-count">1,429</span> HOLDERS VOTING</p>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Leaderboards">
+        <button class="tab is-active" role="tab" aria-selected="true" data-board="causes">Top Causes</button>
+        <button class="tab" role="tab" aria-selected="false" data-board="holders">Top Holders</button>
+      </div>
+      <div class="rule"></div>
+      <ol class="rows" id="leaderboard" aria-label="Leaderboard"></ol>
+
+      <div class="subhead">
+        <p class="eyebrow">PAYOUTS</p>
+        <h3 class="sub-title">Watch every payment</h3>
+        <p class="section-lede">Each payout is made by an agent in a real browser. Watch the one running now, or press Watch on any payout to replay it.</p>
+      </div>
+
+      <div class="agent" id="agent" aria-live="polite">
+        <div class="agent-top">
+          <span class="agent-badge" id="agent-badge"><span class="dot" aria-hidden="true"></span><span>SAMPLE</span></span>
+          <span class="agent-title" id="agent-title"></span>
+          <a class="agent-open" id="agent-open" target="_blank" rel="noopener" hidden>OPEN IN NEW TAB</a>
+        </div>
+        <div class="agent-body">
+          <div class="browser">
+            <div class="browser-bar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser-url" id="agent-url"></span></div>
+            <div class="browser-view" id="agent-view"></div>
+          </div>
+          <div class="agent-side">
+            <ol class="agent-steps" id="agent-steps" aria-label="What the agent is doing"></ol>
+            <p class="agent-note">Card details are hidden in every live view and recording.</p>
+          </div>
+        </div>
+      </div>
+
+      <ul class="payouts" id="payouts" aria-label="Latest payouts"></ul>
+    </section>
+
+    <!-- ======================= PROTOCOL ======================= -->
+    <section class="section" id="protocol">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">HOW IT WORKS</p>
+          <h2 class="section-title">From trade to donation</h2>
+        </div>
+      </div>
+      <div class="rule"></div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-no">01</span>
+          <h3>Every trade adds to the card</h3>
+          <p>Each time anyone buys or sells $PIF, a small fee is taken. Every fee goes onto the $PIF virtual card.</p>
+        </li>
+        <li class="step">
+          <span class="step-no">02</span>
+          <h3>You pick the cause</h3>
+          <p>Post a thesis on FOMO with your cause's donation link, or connect your wallet here and paste it. Any cause you can donate to online counts.</p>
+        </li>
+        <li class="step">
+          <span class="step-no">03</span>
+          <h3>Agents make the payment</h3>
+          <p>Our agents open each cause's donation page and pay from the card. Causes backed by more $PIF, held longer, get a bigger share.</p>
+        </li>
+        <li class="step">
+          <span class="step-no">04</span>
+          <h3>Watch it happen</h3>
+          <p>Every payment runs in a browser you can watch live or replay later, right next to its receipt.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ======================= TREASURY ======================= -->
+    <section class="section" id="treasury">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">THE FEES</p>
+          <h2 class="section-title">Where every fee goes</h2>
+        </div>
+        <p class="head-note" id="next-payout">NEXT PAYOUT IN --:--:--</p>
+      </div>
+      <div class="rule"></div>
+
+      <div class="split">
+        <div class="split-bar" aria-hidden="true">
+          <span class="split-give" style="width:80%">80% TO CAUSES</span>
+          <span class="split-ops" style="width:20%">20% TAXES</span>
+        </div>
+        <p class="split-note">Every fee lands on the $PIF virtual card. 80% is paid out to the causes holders pick, and 20% is kept to cover taxes. This split is fixed.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span class="stat-label">TOTAL DONATED</span><span class="stat-value" id="stat-donated">$0</span></div>
+        <div class="stat"><span class="stat-label">CAUSES FUNDED</span><span class="stat-value" id="stat-causes">0</span></div>
+        <div class="stat"><span class="stat-label">PAYOUTS MADE</span><span class="stat-value" id="stat-payouts">0</span></div>
+        <div class="stat"><span class="stat-label">HOLDERS VOTING</span><span class="stat-value" id="stat-holders">0</span></div>
+      </div>
+
+      <div class="milestones">
+        <p class="eyebrow">DONATION GOALS</p>
+        <div class="track" aria-hidden="true"><div class="track-fill" id="track-fill"></div></div>
+        <div class="marks" id="marks"></div>
+      </div>
+    </section>
+
+    <!-- ======================= CONNECT ======================= -->
+    <section class="section" id="connect">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">JOIN IN</p>
+          <h2 class="section-title">Pick your cause</h2>
+        </div>
+      </div>
+      <div class="rule"></div>
+
+      <div class="connect">
+        <div class="connect-steps">
+          <div class="cstep">
+            <span class="step-no">01</span>
+            <div><h3>Connect your wallet</h3><p id="wallet-status">Not connected yet.</p></div>
+            <button class="btn btn-dark btn-small" id="connect-btn">Connect Wallet</button>
+          </div>
+          <div class="cstep">
+            <span class="step-no">02</span>
+            <div><h3>Paste your cause's link</h3><p>Any page where you can donate online: a charity, a GoFundMe, a school fund.</p></div>
+            <input class="select field-url" id="cause-url" type="url" inputmode="url" autocomplete="url" placeholder="https://.../donate" aria-label="Your cause's donation link">
+          </div>
+          <div class="cstep">
+            <span class="step-no">03</span>
+            <div><h3>Sign to save</h3><p id="sign-status">Your wallet signs a message to prove the vote is yours. It's free: no gas, no transaction.</p></div>
+            <button class="btn btn-light btn-small" id="sign-btn" disabled>Sign &amp; Save</button>
+          </div>
+        </div>
+
+        <div class="cta">
+          <div>
+            <h3 class="cta-title">On FOMO? Post your thesis there.</h3>
+            <p class="cta-sub">Write a thesis about $PIF on FOMO and include your cause's donation link. It counts the same as signing up here.</p>
+          </div>
+          <a class="btn btn-dark btn-small" id="fomo-link" target="_blank" rel="noopener" hidden>Open FOMO</a>
+        </div>
+      </div>
+
+      <div class="faq">
+        <p class="eyebrow">QUESTIONS</p>
+        <details><summary>Who decides where the money goes?</summary><p>Holders. Each holder backs one cause, by posting a thesis on FOMO or by connecting a wallet here. Every payout is split between causes by how much $PIF their backers hold and how long they've held it. To keep it fair, no single cause can take more than a fixed maximum of any payout.</p></details>
+        <details><summary>What causes can I pick?</summary><p>Any cause with an online donation page: a charity's donate page, a GoFundMe, a school or hospital fund. If our agents can pay it online, it counts.</p></details>
+        <details><summary>How does the money reach my cause?</summary><p>All fees collect on the $PIF virtual card. On each payout, our agents (software that uses a web browser the way a person does) open the cause's donation page, pay from the card and save the receipt.</p></details>
+        <details><summary>Can I watch a payment happen?</summary><p>Yes. Every payout has a Watch button. While a payout is running you see the agent's browser live as it opens the donation page, enters the amount, pays and saves the receipt. Finished payouts keep their recording.</p></details>
+        <details><summary>Can viewers see the card number?</summary><p>No. Card details are hidden in every live view and recording.</p></details>
+        <details><summary>Where does the other 20% go?</summary><p>We keep 20% of fees to cover taxes. The 80/20 split never changes.</p></details>
+        <details><summary>How do I know payouts are real?</summary><p>Every payout in the log has a recording of the agent making it and the receipt from the cause, so anyone can check that the money in matches the money out.</p></details>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="rule"></div>
+      <div class="footer-row">
+        <span>&copy; 2026 PAY IT FORWARD &middot; $PIF</span>
+        <span class="footer-links">
+          <a href="https://github.com/kalyanadarsh06/Pay-It-Forward">GITHUB</a>
+          <a href="#protocol">HOW IT WORKS</a>
+          <a href="#treasury" id="contract-link">CONTRACT: AT LAUNCH</a>
+        </span>
+      </div>
+      <p class="disclaimer">$PIF is a community memecoin, not an investment, and its price can go to zero. Trading fees go onto the $PIF virtual card: 80% is donated to the causes holders pick and 20% is kept to cover taxes. Nothing on this site is financial advice.</p>
+    </footer>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
