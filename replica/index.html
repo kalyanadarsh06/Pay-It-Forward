@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pay It Forward · Your fees, paid forward</title>
+<meta name="description" content="Creator fees from $PIF on Robinhood Chain are donated to GoFundMe campaigns chosen by holders, computed and paid on camera by an agent, with a receipt for every dollar.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500;12..96,75..100,700;12..96,75..100,800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="tour.css">
+<script src="../prototype/data/sample.js"></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 48 48"><path d="M24 2a22 22 0 1 0 0 44 22 22 0 0 0 0-44Zm0 10a12 12 0 1 1 0 24 12 12 0 0 1 0-24Z" fill="currentColor"/><path d="M24 14a10 10 0 0 1 10 10h-7a3 3 0 0 0-3-3v-7Z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="nav" aria-label="Site">
+  <div class="nav__left">
+    <a class="logo" href="#top" aria-label="Pay It Forward"><svg><use href="#mark"/></svg></a>
+    <nav class="navpill" aria-label="Primary">
+      <a href="#charities" data-dot>Campaigns</a><a href="#how">How it works</a><a href="#leaderboard">Leaderboard</a><a href="#proofs">Proofs</a><a href="#verify" data-dot>Verify</a>
+    </nav>
+  </div>
+  <div class="nav__right">
+    <a class="btn btn--grey" href="#cta">Nominate</a>
+    <a class="btn btn--black" href="#cta">Hold $PIF</a>
+  </div>
+</header>
+<a class="edge-btn" href="../prototype/index.html?tour=0" aria-label="Replay Earthy's tour">
+  <svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="12" fill="#2a9fe8"/><path d="M8 8c4-3 9-2 10 1-2 3-7 4-10 2z M17 16c3-1 7 1 6 4-2 3-7 2-6-4z M7 17c3 0 5 3 3 6-3 1-5-3-3-6z" fill="#3fc34c"/><ellipse cx="11.5" cy="14.5" rx="1.6" ry="2.2" fill="#141414"/><path d="M16.5 14.5q2-2.4 4 0" stroke="#141414" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M12 19q3 2.6 6 0" stroke="#141414" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+</a>
+<i class="edge-bars" aria-hidden="true"></i>
+
+<main id="top">
+  <!-- ===== hero ===== -->
+  <section class="hero">
+    <div class="shape pill-x" aria-hidden="true"><i></i><i></i></div>
+    <div class="shape panel panel--a" aria-hidden="true"></div>
+    <svg class="shape pixel-blob" viewBox="0 0 44 28" aria-hidden="true" id="blob"></svg>
+    <div class="shape panel panel--b" aria-hidden="true"></div>
+    <div class="shape pill-pink" aria-hidden="true"></div>
+    <div class="shape cube" aria-hidden="true"></div>
+    <div class="pixels" id="hero-pixels" aria-hidden="true"></div>
+    <div class="wrap hero__inner">
+      <div class="hero__icons" aria-hidden="true">
+        <svg viewBox="0 0 44 32"><rect x="2" y="6" width="26" height="20" rx="2"/><path d="M28 13l12-6v18l-12-6"/></svg>
+        <svg viewBox="0 0 44 32"><path d="M6 6h24v22H6z M11 12h14 M11 17h14 M11 22h8"/></svg>
+        <svg viewBox="0 0 44 32"><circle cx="18" cy="16" r="12"/><path d="M18 9v14 M14 13h6a2.5 2.5 0 0 1 0 5h-4a2.5 2.5 0 0 0 0 5h6"/></svg>
+      </div>
+      <h1 class="h-display">Your fees,<br>paid forward</h1>
+      <p class="hero__lede">Creator fees from $PIF go to GoFundMe campaigns chosen by the people holding it. An agent in a cloud VM does the math and pays, on a live stream, with a receipt for every dollar.</p>
+      <div class="hero__cta"><a class="btn btn--lime" href="#cta">Hold $PIF</a><a class="btn btn--white" href="#proofs">Watch the agent</a></div>
+    </div>
+    <a class="hero__chip" href="../prototype/index.html?tour=0"><i aria-hidden="true"></i>Meet Earthy</a>
+  </section>
+
+  <!-- ===== charities ===== -->
+  <section class="wrap charities reveal" id="charities">
+    <div class="charities__head">
+      <h2 class="h-section">The campaigns holders<br>are funding right now</h2>
+      <p class="note" id="charities-note"></p>
+    </div>
+    <div class="charities__stats" id="charities-stats"></div>
+    <div class="cgrid stagger" id="cgrid"></div>
+  </section>
+
+  <!-- ===== tabs ===== -->
+  <section class="wrap tabs-section reveal" id="how">
+    <h2 class="h-section">Hold, nominate, and verify<br>every dollar.</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab tab--cyan" role="tab" aria-selected="true" data-tab="hold">Hold</button>
+      <button class="tab tab--blue" role="tab" aria-selected="false" data-tab="nominate">Nominate</button>
+      <button class="tab tab--lime" role="tab" aria-selected="false" data-tab="verify">Verify</button>
+    </div>
+    <div class="olive-panel" id="panel">
+      <div class="olive-panel__content" id="panel-content">
+      <h3 class="h-panel" id="panel-title">Sweeps<br>Fees become donations every 15 minutes</h3>
+      <p class="lede" id="panel-lede">Hold at least 0.5% of supply and you’re counted in every sweep. Your share of the creator fees, weighted by how much you held and for how long, goes to the campaign you nominated. Nothing to claim, nothing to sign.</p>
+      <div class="divider" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="olive-panel__grid">
+        <div>
+          <p class="use">Use it to</p>
+          <div class="chips" id="panel-chips"></div>
+        </div>
+        <a class="btn btn--cyan" id="panel-btn" href="../prototype/index.html?ledger">See the live ledger</a>
+      </div>
+      </div>
+      <div class="pixels" id="panel-pixels" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ===== leaderboard ===== -->
+  <section class="lb reveal" id="leaderboard">
+    <div class="pixels" id="lb-pixels" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="lb__head">
+        <div>
+          <h2 class="h-section" style="color:var(--white)">Leaderboard</h2>
+          <p class="lb__season" id="lb-season"></p>
+        </div>
+        <a class="btn btn--lime" href="../prototype/index.html?ledger#leaderboard">Full ledger</a>
+      </div>
+      <div class="podium" id="podium"></div>
+      <div class="ranks stagger" id="ranks"></div>
+      <p class="lb__foot" id="lb-foot"></p>
+    </div>
+  </section>
+
+  <!-- ===== proofs carousel ===== -->
+  <section class="wrap proofs-section reveal" id="proofs">
+    <div class="head">
+      <div>
+        <h2 class="h-section">Every donation we’ve made,<br>recorded and receipted</h2>
+        <div class="chips" style="margin-top:2.2rem" id="proof-chips"></div>
+      </div>
+      <p class="note" id="proof-note"></p>
+    </div>
+    <p class="explore"><a href="../prototype/index.html?ledger#proofs">Explore all proofs</a> <b aria-hidden="true">+</b></p>
+    <div class="carousel" id="carousel"></div>
+  </section>
+
+  <!-- ===== why ===== -->
+  <section class="wrap why reveal">
+    <h2 class="h-section">Why trust it?</h2>
+    <div class="why__grid stagger">
+      <article class="why__card">
+        <h3>On camera, every time</h3>
+        <p>The agent runs in an isolated VM with its screen streamed continuously. Nobody touches the keyboard during a sweep. If the stream drops, sweeps pause.</p>
+        <span></span>
+        <div class="art art--lime"><span class="dotted-text" style="--dot:#2a3a00">15-minute<br>sweeps</span></div>
+      </article>
+      <article class="why__card">
+        <h3>Receipts, not promises</h3>
+        <p>Every donation ships with the unedited recording, GoFundMe’s own confirmation, and the fee transaction hash. Check any one of them yourself.</p>
+        <a class="btn btn--black" href="../prototype/index.html?ledger#proofs">Open the receipts</a>
+        <div class="art art--grid art__cross"><div class="art__receipt"><i></i></div></div>
+      </article>
+      <article class="why__card">
+        <h3>Holders choose</h3>
+        <p>Nominate a campaign when you buy in. The weight math is the same for everyone: share of supply held × fraction of the window held.</p>
+        <a class="btn btn--black" href="../prototype/index.html?ledger#leaderboard">See the leaderboard</a>
+        <div class="art art--code"><pre class="art__code"><b>sweep</b> #0412  <b>window</b> 14:17→14:32
+fees      1,000.00 USDC  tx 0x8f3a2c…c21e
+nicu.eth  30.00% × 15/15 → <b>weight</b> 0.3000
+gross     300.00  reserve −60.00
+<b>donate</b>    240.00 → gofundme.com/f/mayas-nicu-bills</pre></div>
+      </article>
+      <article class="why__card">
+        <h3>A reserve for tax, nothing else</h3>
+        <p>Creator fees are income to us, so a 20% reserve covers the tax on them. Everything after the reserve goes where the holder pointed it. We don’t take a cut.</p>
+        <span></span>
+        <div class="art art--violet"><span class="dotted-text" style="--dot:#fff">20% reserve<br>80% donated</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== verify ===== -->
+  <section class="verify reveal" id="verify">
+    <div class="px-white" id="verify-pixels" aria-hidden="true"></div>
+    <svg class="plane" viewBox="0 0 30 42" aria-hidden="true" id="plane"></svg>
+    <div class="wrap">
+      <h2 class="h-section">Built for verification</h2>
+      <div class="verify__top">
+        <div>
+          <p class="lede">Pay It Forward is designed to survive a hostile read by someone who assumes it is a scam.</p>
+          <p class="use">Use it for</p>
+          <div class="chips"><span class="chip chip--grey chip--small">Fee tx hashes</span><span class="chip chip--grey chip--small">GoFundMe receipts</span><span class="chip chip--grey chip--small">Unedited recordings</span><span class="chip chip--grey chip--small">Dispute log</span><span class="chip chip--grey chip--small">Open data feed</span></div>
+        </div>
+        <a class="btn btn--dotted" href="#verify-rows">Read the method</a>
+      </div>
+      <div class="rows" id="verify-rows">
+        <div class="row"><h3>Sweep math, on the stream</h3><p>Every weight, reserve and donation is computed out loud by the agent before it pays. The log is in every recording.</p></div>
+        <div class="row"><h3>Card redacted, receipt shown</h3><p>The card number is blacked out in post. Nothing else is touched. GoFundMe’s confirmation stays in frame.</p></div>
+        <div class="row"><h3>Disputes resolved in public</h3><p>Raise one on X or by email. It is logged with the sweep it concerns and corrected in the next one.</p></div>
+        <div class="row"><h3>Open data feed</h3><p>The agent writes a JSON file after every sweep. The site reads it; so can you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== voices ===== -->
+  <section class="voices reveal" id="voices">
+    <div class="cross" aria-hidden="true"><i></i><i></i></div>
+    <i class="sq sq--o" style="right:12%;top:19rem" aria-hidden="true"></i><i class="sq sq--c" style="right:11%;top:19rem" aria-hidden="true"></i><i class="sq sq--o" style="right:8%;top:19rem" aria-hidden="true"></i><i class="sq sq--c" style="right:13%;top:22rem" aria-hidden="true"></i>
+    <div class="wrap">
+      <div class="words"><span class="word">Held</span><span class="word">by</span><span class="word word--inv">people</span><span class="word">,</span></div>
+      <div class="quotes stagger" id="quotes"></div>
+      <div class="words words--right"><span class="word word--inv">paid</span><span class="word">forward</span><span class="word">.</span></div>
+    </div>
+  </section>
+
+  <!-- ===== cta ===== -->
+  <section class="wrap cta reveal" id="cta">
+    <div class="cta__panel">
+      <h2>Hold, nominate, and verify on $PIF.</h2>
+      <p class="lede">From the first sweep to the last receipt, Pay It Forward gives you a way to turn trading fees into money that reaches someone, with proof.</p>
+      <div class="divider" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="btns"><a class="btn btn--olive" id="cta-buy" href="#">Hold $PIF</a><a class="btn btn--white" href="../prototype/index.html?ledger">Nominate a campaign</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__cols">
+    <div class="wide"><h3>Learn more</h3><ul class="two"><li><a href="#how">How it works</a></li><li><a href="../prototype/index.html?ledger">Live ledger</a></li><li><a href="../prototype/index.html?ledger#proofs">Proofs</a></li><li><a href="#">Stream</a></li><li><a href="#verify">The method</a></li><li><a href="#">Dispute log</a></li><li><a href="#">Data feed</a></li><li><a href="#">Status</a></li><li><a href="#">Trust &amp; safety</a></li><li><a href="#">Get in touch</a></li><li><a href="#">Legal</a></li><li><a href="#">Your privacy choices</a></li></ul></div>
+    <div><h3>Campaigns</h3><ul id="f-campaigns"></ul></div>
+    <div><h3>Proofs</h3><ul id="f-proofs"></ul></div>
+    <div><h3>Agent</h3><ul><li><a href="#">VM-01</a></li><li><a href="#">Recordings</a></li><li><a href="#">Sweep log</a></li><li><a href="#">Reserve policy</a></li><li><a href="#">Model &amp; tools</a></li></ul></div>
+    <div><h3>Social</h3><ul><li><a id="f-x" href="#">X</a></li><li><a href="#">Twitch</a></li><li><a href="#">GitHub</a></li><li><a href="#">Telegram</a></li></ul></div>
+  </div>
+  <div class="footer__mark" aria-hidden="true"><svg viewBox="0 0 48 48"><use href="#mark"/></svg><b>PIF</b></div>
+  <p class="footer__legal" id="legal"></p>
+</footer>
+
+<script src="app.js"></script>
+<script src="tour-timeline.js"></script>
+<script src="tour.js"></script>
+</body>
+</html>

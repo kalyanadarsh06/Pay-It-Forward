@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-22T19:40:00Z",
+  "title": "Design System: Pay It Forward",
+  "extensions": {
+    "colorMeta": {
+      "lime": { "role": "primary", "displayName": "Lime Spark", "canonical": "oklch(88% 0.21 122)", "tonalRamp": ["oklch(15% 0.06 122)","oklch(27% 0.1 122)","oklch(39% 0.14 122)","oklch(51% 0.17 122)","oklch(63% 0.19 122)","oklch(75% 0.2 122)","oklch(88% 0.21 122)","oklch(95% 0.1 122)"] },
+      "leaf": { "role": "primary", "displayName": "Leaf", "canonical": "oklch(58% 0.15 148)", "tonalRamp": ["oklch(15% 0.05 148)","oklch(26% 0.08 148)","oklch(37% 0.11 148)","oklch(48% 0.13 148)","oklch(58% 0.15 148)","oklch(70% 0.13 148)","oklch(82% 0.09 148)","oklch(94% 0.04 148)"] },
+      "amber": { "role": "secondary", "displayName": "Earthy Amber", "canonical": "oklch(75% 0.16 62)", "tonalRamp": ["oklch(15% 0.05 62)","oklch(27% 0.09 62)","oklch(39% 0.12 62)","oklch(56% 0.16 48)","oklch(75% 0.16 62)","oklch(83% 0.13 70)","oklch(90% 0.11 80)","oklch(96% 0.05 85)"] },
+      "link": { "role": "secondary", "displayName": "Violet Link", "canonical": "oklch(48% 0.2 300)", "tonalRamp": ["oklch(13% 0.03 300)","oklch(22% 0.08 300)","oklch(33% 0.14 300)","oklch(44% 0.19 298)","oklch(48% 0.2 300)","oklch(62% 0.17 300)","oklch(78% 0.1 300)","oklch(95% 0.012 300)"] },
+      "magenta-mass": { "role": "tertiary", "displayName": "Magenta Mass", "canonical": "oklch(54% 0.19 345)", "tonalRamp": ["oklch(15% 0.06 345)","oklch(27% 0.12 345)","oklch(39% 0.18 345)","oklch(50% 0.23 345)","oklch(58% 0.25 345)","oklch(70% 0.2 345)","oklch(82% 0.12 345)","oklch(94% 0.04 345)"] },
+      "coral-mass": { "role": "tertiary", "displayName": "Coral Mass", "canonical": "oklch(66% 0.15 18)", "tonalRamp": ["oklch(15% 0.05 18)","oklch(28% 0.1 18)","oklch(41% 0.15 18)","oklch(55% 0.19 18)","oklch(72% 0.19 18)","oklch(80% 0.15 18)","oklch(88% 0.09 18)","oklch(95% 0.03 18)"] },
+      "field": { "role": "neutral", "displayName": "Field", "canonical": "oklch(23% 0.05 300)", "tonalRamp": ["oklch(13% 0.03 300)","oklch(19% 0.04 300)","oklch(30% 0.04 300)","oklch(48% 0.04 300)","oklch(60% 0.04 300)","oklch(72% 0.035 300)","oklch(85% 0.02 300)","oklch(95% 0.012 300)"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "oklch(90.5% 0.008 108)", "tonalRamp": ["oklch(17% 0.012 290)","oklch(28% 0.012 290)","oklch(41% 0.012 290)","oklch(55% 0.012 108)","oklch(68% 0.012 108)","oklch(79% 0.012 108)","oklch(90.5% 0.008 108)","oklch(94% 0.006 108)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Step titles and the ledger opening line. One per view." },
+      "figure": { "displayName": "Figure", "purpose": "World-state figures and the lead total." },
+      "stat": { "displayName": "Stat", "purpose": "Totals, receipt total, lead live-ledger amount." },
+      "label": { "displayName": "Label", "purpose": "Nav, statuses, stat labels, column heads. Never above a heading." },
+      "data": { "displayName": "Data", "purpose": "Hashes, confirmations, addresses, recording logs only." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Arrivals: steps, rows, Earthy's hands." },
+      { "name": "ease-in", "value": "cubic-bezier(0.7, 0, 0.84, 0)", "purpose": "Exits, 160ms." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "Loops: field masses, breath, count, cheer." },
+      { "name": "d-fast", "value": "160ms", "purpose": "Hover color." },
+      { "name": "d-base", "value": "280ms", "purpose": "State changes, mouth morph, arrow slide." },
+      { "name": "d-rise", "value": "520ms", "purpose": "Step and row arrivals." },
+      { "name": "field-drift", "value": "19s–27s alternate", "purpose": "The three color masses; transform only; stills under reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "stack", "value": "64rem" },
+      { "name": "phone", "value": "40rem" }
+    ]
+  },
+  "components": [
+    { "name": "Action", "kind": "button", "refersTo": "action", "description": "The one primary step on a view: outlined rectangle, serif label left, arrow right; fills to ink on hover.",
+      "html": "<button class=\"ds-action\"><span>Show me</span><span class=\"ds-action__arrow\" aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-action { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; width: 100%; border: 1px solid var(--ink, oklch(17% 0.012 290)); background: transparent; color: var(--ink, oklch(17% 0.012 290)); padding: 1.5rem 2rem; font-family: 'Instrument Serif', serif; font-size: 2rem; line-height: 1.1; cursor: pointer; transition: background-color 280ms cubic-bezier(0.16,1,0.3,1), color 280ms cubic-bezier(0.16,1,0.3,1); } .ds-action__arrow { font-family: 'Hanken Grotesk', sans-serif; font-size: 1.6em; line-height: 1; transition: transform 280ms cubic-bezier(0.16,1,0.3,1); } .ds-action:hover { background: var(--ink, oklch(17% 0.012 290)); color: var(--paper, oklch(90.5% 0.008 108)); } .ds-action:hover .ds-action__arrow { transform: translateX(6px); } .ds-action:focus-visible { outline: 2px solid var(--link, oklch(48% 0.2 300)); outline-offset: 3px; }" },
+    { "name": "Lime action", "kind": "button", "refersTo": "action-lime", "description": "The single buy action. Lime fill, ink text; inverts on hover.",
+      "html": "<a class=\"ds-action ds-action--lime\" href=\"#\"><span>Hold $PIF on the launchpad</span><span class=\"ds-action__arrow\" aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-action--lime { background: var(--lime, oklch(88% 0.21 122)); text-decoration: none; } .ds-action--lime:hover { background: var(--ink, oklch(17% 0.012 290)); color: var(--lime, oklch(88% 0.21 122)); }" },
+    { "name": "Small button", "kind": "button", "refersTo": "button-small", "description": "Outlined label-size control such as Copy.",
+      "html": "<button class=\"ds-btn\">Copy</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: .5em; border: 1px solid var(--ink, oklch(17% 0.012 290)); background: transparent; color: var(--ink, oklch(17% 0.012 290)); padding: .7em 1.1em; font-family: 'Hanken Grotesk', sans-serif; font-size: .72rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: background-color 160ms, color 160ms; } .ds-btn:hover { background: var(--ink, oklch(17% 0.012 290)); color: var(--paper, oklch(90.5% 0.008 108)); } .ds-btn:focus-visible { outline: 2px solid var(--link, oklch(48% 0.2 300)); outline-offset: 3px; }" },
+    { "name": "Document nav", "kind": "nav", "refersTo": "spark", "description": "Tracked uppercase links with the lime spark square at the end.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Ledger</a><a href=\"#\">Proofs</a><a href=\"#\">Stream ↗</a><a href=\"#\">X ↗</a><a class=\"ds-spark\" href=\"#\" aria-label=\"Pay It Forward\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\"><path d=\"M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4\"/></svg></a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 1.5rem; font-family: 'Hanken Grotesk', sans-serif; font-size: .72rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; } .ds-nav a { color: var(--ink, oklch(17% 0.012 290)); text-decoration: none; padding-bottom: 3px; border-bottom: 1px solid transparent; } .ds-nav a:hover, .ds-nav a[aria-current] { border-bottom-color: var(--ink, oklch(17% 0.012 290)); } .ds-spark { width: 44px; height: 44px; display: grid; place-items: center; background: var(--ink, oklch(17% 0.012 290)); color: var(--lime, oklch(88% 0.21 122)); border-bottom: 0 !important; }" },
+    { "name": "Status", "kind": "chip", "refersTo": "", "description": "Dot plus tracked label. Leaf for settled, muted for queued, amber-deep for confirming.",
+      "html": "<span class=\"ds-status ds-status--settled\">Settled</span> <span class=\"ds-status ds-status--queued\">Queued</span> <span class=\"ds-status ds-status--confirming\">Confirming</span>",
+      "css": ".ds-status { display: inline-flex; align-items: center; gap: .5em; font-family: 'Hanken Grotesk', sans-serif; font-size: .72rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; margin-right: 1rem; } .ds-status::before { content: ''; width: .5em; height: .5em; border-radius: 50%; background: currentColor; } .ds-status--settled { color: var(--leaf, oklch(58% 0.15 148)); } .ds-status--queued { color: var(--ink-2, oklch(41% 0.012 290)); } .ds-status--confirming { color: var(--amber-deep, oklch(56% 0.16 48)); }" },
+    { "name": "Live-ledger row", "kind": "custom", "refersTo": "", "description": "Time, campaign with holder beneath, serif amount, status; hairlines above and below.",
+      "html": "<ol class=\"ds-rows\"><li class=\"ds-row\"><span class=\"ds-row__t\">07:33:41</span><span class=\"ds-row__who\">Maya’s NICU bills<small>nicu.eth · #0412-07</small></span><span class=\"ds-row__amt\">$240.00</span><span class=\"ds-status ds-status--settled\">Settled</span></li></ol>",
+      "css": ".ds-rows { list-style: none; margin: 0; padding: 0; font-family: 'Hanken Grotesk', sans-serif; color: var(--ink, oklch(17% 0.012 290)); } .ds-row { display: grid; grid-template-columns: 5.5rem minmax(0,1fr) auto 7.5rem; gap: 1rem; align-items: baseline; padding: 1rem 0; border-top: 1px solid var(--line, oklch(79% 0.012 108)); border-bottom: 1px solid var(--line, oklch(79% 0.012 108)); } .ds-row__t { color: var(--ink-2, oklch(41% 0.012 290)); font-variant-numeric: tabular-nums; } .ds-row__who small { display: block; color: var(--ink-2, oklch(41% 0.012 290)); font-size: .9rem; } .ds-row__amt { font-family: 'Instrument Serif', serif; font-size: 1.3rem; line-height: 1; } .ds-row .ds-status { justify-self: end; margin: 0; }" },
+    { "name": "Recording panel", "kind": "card", "refersTo": "recording", "description": "Anything the agent recorded sits on the field's dark surface: mono log, redaction bars, play control, scrub bar.",
+      "html": "<div class=\"ds-rec\"><div class=\"ds-rec__log\"><div><span class=\"k\">▸</span> gofundme.com/f/mayas-nicu-bills</div><div>  amount ← 240.00</div><div>  card ← <span class=\"ds-rec__redact\">redacted</span></div></div><div class=\"ds-rec__play\"></div><div class=\"ds-rec__bar\"><span>00:48</span><div class=\"track\"><i></i></div><span>2:14</span></div></div>",
+      "css": ".ds-rec { position: relative; aspect-ratio: 16/10; background: var(--field-2, oklch(19% 0.04 300)); color: var(--on-field, oklch(95% 0.012 300)); padding: 1rem; font-family: 'Martian Mono', monospace; font-size: .78rem; line-height: 1.6; overflow: hidden; } .ds-rec__log { color: var(--on-field-2, oklch(72% 0.035 300)); white-space: pre; } .ds-rec__log .k { color: var(--lime, oklch(88% 0.21 122)); } .ds-rec__redact { display: inline-block; background: var(--redact, oklch(8% 0.02 300)); color: var(--on-field-3, oklch(48% 0.04 300)); padding: 0 .55em; letter-spacing: .08em; } .ds-rec__play { position: absolute; inset: 0; margin: auto; width: 3.2rem; height: 3.2rem; border-radius: 50%; border: 1px solid var(--on-field-2, oklch(72% 0.035 300)); display: grid; place-items: center; } .ds-rec__play::after { content: ''; border-left: .8rem solid currentColor; border-top: .5rem solid transparent; border-bottom: .5rem solid transparent; margin-left: .2rem; } .ds-rec__bar { position: absolute; left: 1rem; right: 1rem; bottom: .75rem; display: grid; grid-template-columns: auto 1fr auto; gap: .75rem; align-items: center; font-size: .72rem; letter-spacing: .14em; } .ds-rec__bar .track { height: 2px; background: var(--on-field-3, oklch(48% 0.04 300)); position: relative; } .ds-rec__bar .track i { position: absolute; inset: 0 64% 0 0; background: var(--lime, oklch(88% 0.21 122)); }" }
+  ],
+  "narrative": {
+    "northStar": "The Field and the Ledger",
+    "overview": "Two surfaces share every screen. On the left is the field: a dusty violet ground where three large blurred masses of violet, magenta and coral drift slowly and never stop. It is where the agent lives and where Earthy, an amber character with a face and two hands, stands and speaks. On the right is the ledger: a pale warm-gray document in the Notion and Obsidian register, structured only by hairlines and whitespace, where every claim is a line item with a time, an amount and a status. The split is the argument. Warmth and life on one side, receipts on the other.\n\nThe ledger is deliberately plain so that the few colored things carry meaning: lime for the brand mark and the live state, leaf green for money that has settled, amber for Earthy, violet for links. Type is high-contrast serif for everything that must feel declared (headings, every large number) and a quiet grotesk for everything that must simply be read. Primary actions are large outlined rectangles with a serif label on the left and an arrow on the right, which fill to ink on hover. Nothing casts a shadow.",
+    "keyCharacteristics": [
+      "Split shell: dark living field left (40%), pale document right, stacked on phones.",
+      "Hairline structure only. No cards, no shadows, no rounded containers.",
+      "High-contrast serif for headings and all large figures; tracked uppercase labels for metadata.",
+      "Four accents with one job each: lime (brand and live), leaf (settled money), amber (Earthy), violet (links).",
+      "Earthy is articulated: body breath, blink, a morphing mouth, brows, and two hands with named gestures."
+    ],
+    "rules": [
+      { "name": "The One Job Rule", "body": "Each accent has exactly one meaning. Leaf is never decorative; lime never marks money; amber never leaves Earthy.", "section": "colors" },
+      { "name": "The Recorded Surface Rule", "body": "Anything the agent recorded is shown on the field's dark surface, even inside the document. The visitor learns that dark means \"captured by the agent.\"", "section": "colors" },
+      { "name": "The Serif Number Rule", "body": "Any number large enough to be read from across the room is set in the serif. Small numbers stay in the body face; hashes stay in mono.", "section": "typography" },
+      { "name": "The No Kicker Rule", "body": "No label sits above a heading. Labels sit above stats, beside statuses, and in nav, never as an eyebrow.", "section": "typography" },
+      { "name": "The Flat Document Rule", "body": "Surfaces are flat. If something needs to feel raised, it changes color (Field Raised on Paper), never shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the field dark and moving and the document pale and still; the contrast is the design.",
+      "Do set every large number in Instrument Serif and every hash in Martian Mono.",
+      "Do show anything the agent recorded on the Field Raised surface, even inside the document.",
+      "Do use the large outlined action for the one primary step on a view, and Lime only for the buy action.",
+      "Do label sample data as sample data wherever a visitor could mistake it for live figures."
+    ],
+    "donts": [
+      "Don't add shadows, rounded containers, or cards. Structure is hairlines and space.",
+      "Don't place a label or step number above a heading.",
+      "Don't use Leaf for anything other than confirmed money, or Lime for anything other than the brand mark, live state and the buy action.",
+      "Don't let Earthy's amber appear on UI elements; it belongs to the character.",
+      "Don't animate layout properties; motion is transform and opacity, and the field's masses are transform-only."
+    ]
+  }
+}

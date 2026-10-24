@@ -1,0 +1,58 @@
+/* Earthy rig: a globe with articulated arms. Moods: neutral · glad (wink) · concerned. Gestures: wave · cheeks · point · point-up · count · raise · cheer · present · walk. */
+.earthy { overflow: visible; }
+.e-body { transform-box: view-box; transform-origin: 100px 104px; }
+.earthy.is-alive .e-body { animation: e-breathe 4.2s cubic-bezier(.65,0,.35,1) infinite; }
+@keyframes e-breathe { 50% { transform: translateY(-2px) scale(1.02); } }
+.e-skin { fill: url(#e-sea); }
+.e-land { fill: #3fc34c; }
+.e-land path:nth-child(2n) { fill: #2fa83f; }
+.e-rim { fill: none; stroke: #1a77c9; stroke-width: 2; opacity: .55; }
+.e-eyes { transform-box: view-box; transform-origin: 100px 97px; transition: transform .28s cubic-bezier(.16,1,.3,1); }
+.e-eye { fill: #141414; transform-box: fill-box; transform-origin: center; }
+.e-glint { fill: #fff; }
+.e-wink { fill: none; stroke: #141414; stroke-width: 4; stroke-linecap: round; opacity: 0; }
+.earthy.is-blinking .e-eye { animation: e-blink 160ms cubic-bezier(.16,1,.3,1); }
+@keyframes e-blink { 50% { transform: scaleY(.08); } }
+.e-brow { fill: none; stroke: #141414; stroke-width: 3; stroke-linecap: round; opacity: 0; transition: opacity .28s, transform .28s; transform-box: view-box; }
+.e-brow--l { transform-origin: 70px 72px; } .e-brow--r { transform-origin: 130px 72px; }
+.e-cheek { fill: #ff8fb0; opacity: .55; }
+.e-mouth { fill: none; stroke: #141414; stroke-width: 4; stroke-linecap: round; transition: d .28s cubic-bezier(.16,1,.3,1); }
+.e-hand { transform-box: view-box; transition: transform .56s cubic-bezier(.16,1,.3,1); }
+.e-hand--l { transform-origin: 50px 130px; } .e-hand--r { transform-origin: 150px 130px; }
+.e-arm { fill: none; stroke: #2a8fe0; stroke-width: 13; stroke-linecap: round; }
+.e-palm { fill: #2a8fe0; }
+.e-spark { fill: none; stroke: #b5ff2e; stroke-width: 3.5; stroke-linecap: round; opacity: 0; transition: opacity .25s; }
+/* moods */
+.earthy[data-mood="glad"] .e-eye--r, .earthy[data-mood="glad"] .e-glint--r { opacity: 0; }
+.earthy[data-mood="glad"] .e-wink { opacity: 1; }
+.earthy[data-mood="concerned"] .e-brow { opacity: 1; }
+.earthy[data-mood="concerned"] .e-brow--l { transform: rotate(-14deg); } .earthy[data-mood="concerned"] .e-brow--r { transform: rotate(14deg); }
+/* gestures: arms rotate at the shoulder */
+.earthy[data-gesture="wave"] .e-hand--r { animation: e-wave 1.9s cubic-bezier(.65,0,.35,1) 1 both; }
+.earthy[data-gesture="wave"] .e-hand--r .e-spark, .earthy[data-gesture="cheer"] .e-spark, .earthy[data-gesture="present"] .e-spark { opacity: 1; }
+@keyframes e-wave { 0% { transform: none; } 14% { transform: rotate(-125deg); } 28% { transform: rotate(-98deg); } 42% { transform: rotate(-128deg); } 56% { transform: rotate(-98deg); } 72% { transform: rotate(-120deg); } 100% { transform: none; } }
+.earthy[data-gesture="cheeks"] .e-hand--l { transform: rotate(-112deg); } .earthy[data-gesture="cheeks"] .e-hand--r { transform: rotate(112deg); }
+.earthy[data-gesture="point"] .e-hand--r { transform: rotate(-95deg); } .earthy[data-gesture="point"] .e-eyes { transform: translateX(4px); }
+.earthy[data-gesture="point-up"] .e-hand--r { transform: rotate(-125deg); } .earthy[data-gesture="point-up"] .e-eyes { transform: translate(3px,-3px); }
+.earthy[data-gesture="count"] .e-hand--l { animation: e-count-l 1.1s cubic-bezier(.65,0,.35,1) infinite alternate; }
+.earthy[data-gesture="count"] .e-hand--r { animation: e-count-r 1.1s cubic-bezier(.65,0,.35,1) .55s infinite alternate; }
+@keyframes e-count-l { from { transform: rotate(30deg); } to { transform: rotate(60deg); } }
+@keyframes e-count-r { from { transform: rotate(-30deg); } to { transform: rotate(-60deg); } }
+.earthy[data-gesture="raise"] .e-hand--r { transform: rotate(-122deg); }
+.earthy[data-gesture="cheer"] .e-hand--l { transform: rotate(122deg); animation: e-cheer-l .72s cubic-bezier(.65,0,.35,1) 3 alternate; }
+.earthy[data-gesture="cheer"] .e-hand--r { transform: rotate(-122deg); animation: e-cheer-r .72s cubic-bezier(.65,0,.35,1) .36s 3 alternate; }
+@keyframes e-cheer-l { from { transform: rotate(112deg); } to { transform: rotate(132deg); } }
+@keyframes e-cheer-r { from { transform: rotate(-112deg); } to { transform: rotate(-132deg); } }
+.earthy[data-gesture="present"] .e-hand--l { transform: rotate(-60deg); } .earthy[data-gesture="present"] .e-hand--r { transform: rotate(-80deg); } .earthy[data-gesture="present"] .e-eyes { transform: translateX(4px); }
+.earthy[data-gesture="walk"] .e-hand--l { animation: e-walk-l .5s cubic-bezier(.65,0,.35,1) infinite alternate; }
+.earthy[data-gesture="walk"] .e-hand--r { animation: e-walk-r .5s cubic-bezier(.65,0,.35,1) .25s infinite alternate; }
+@keyframes e-walk-l { from { transform: rotate(10deg); } to { transform: rotate(-25deg); } }
+@keyframes e-walk-r { from { transform: rotate(-10deg); } to { transform: rotate(25deg); } }
+.earthy.is-up { animation: e-rise .6s cubic-bezier(.16,1,.3,1) both; }
+@keyframes e-rise { from { opacity: 0; transform: translateY(12px); } }
+@media (prefers-reduced-motion: reduce) {
+  .earthy.is-alive .e-body, .earthy.is-blinking .e-eye, .earthy.is-up { animation: none; }
+  .earthy[data-gesture="wave"] .e-hand--r { animation: none; transform: rotate(-110deg); }
+  .earthy[data-gesture="count"] .e-hand--l { animation: none; transform: rotate(45deg); } .earthy[data-gesture="count"] .e-hand--r { animation: none; transform: rotate(-45deg); }
+  .earthy[data-gesture="cheer"] .e-hand--l, .earthy[data-gesture="cheer"] .e-hand--r, .earthy[data-gesture="walk"] .e-hand--l, .earthy[data-gesture="walk"] .e-hand--r { animation: none; }
+}

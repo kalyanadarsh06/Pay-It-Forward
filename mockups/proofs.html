@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Pay It Forward · proofs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pif.css">
+</head>
+<body>
+<p class="mock-note">Design mockup · all figures are sample data · nothing here is live</p>
+<header class="mast wrap">
+  <p class="mast__status">
+    <span class="live">Agent stream live · <b>1,284</b> watching</span>
+    <span>Robinhood Chain · block <b>4,182,331</b></span>
+    <span>Last fee sweep <b>#0412</b> · 14:32:07 UTC</span>
+    <span>Next sweep in <b>11:53</b></span>
+    <span>PIF · <b>$0.00318</b> · mcap <b>$3.18M</b></span>
+  </p>
+  <div class="mast__row">
+    <h1 class="wordmark"><a href="index.html">Pay It Forward</a> <span class="ticker">$PIF</span></h1>
+    <nav class="mast__nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" >Ledger</a></li>
+        <li><a href="proofs.html" aria-current="page">Proofs</a></li>
+        <li><a href="#stream">Stream</a></li>
+        <li><a href="#how">How the math works</a></li>
+        <li><a href="https://x.com/payitforward" class="mono">@payitforward ↗</a></li>
+      </ul>
+    </nav>
+  </div>
+  <hr class="mast__rule" aria-hidden="true">
+</header>
+<main class="wrap">
+  <section class="sec" style="border-top:0" aria-labelledby="proofs-title">
+    <div class="sec__head">
+      <h2 class="sec__title" id="proofs-title">Proofs. <em>Fourteen</em> donations, fourteen recordings, fourteen receipts.</h2>
+      <p class="sec__aside">filter · all · paid · confirming · queued · disputed (0)</p>
+    </div>
+
+    <div class="proof-detail">
+      <figure>
+        <div class="video" role="img" aria-label="Recording of the agent paying donation 0412-07">
+          <div class="video__log">
+<div><span class="k">▸</span> gofundme.com/f/mayas-nicu-bills</div>
+<div>  amount field ← 240.00</div>
+<div>  name ← “Pay It Forward holders (nicu.eth)”</div>
+<div>  note ← “From $PIF sweep #0412. Receipt: payitforward.fund/proofs/0412-07”</div>
+<div>  card ending 4471 · auth…</div>
+          </div>
+          <div class="video__play" aria-hidden="true"></div>
+          <div class="video__scrub"><span>00:48</span><div class="track"><i></i></div><span>02:14</span></div>
+        </div>
+        <figcaption><span>donation #0412-07 · recorded 14:32:09–14:34:23 UTC · unedited</span><span>sha256 3f9c…a1e0 · <a href="#">download .mp4</a></span></figcaption>
+        <ul class="chapters">
+          <li><span class="ts">00:00</span><span>Sweep math for nicu.eth, read aloud: 1,000.00 × 0.3000 = 300.00, less 60.00 reserve.</span></li>
+          <li><span class="ts">00:41</span><span>Opens the campaign page. Verifies the URL matches the one the holder nominated at buy-in.</span></li>
+          <li><span class="ts">01:12</span><span>Fills the donation form. Amount 240.00. Public note links back to this page.</span></li>
+          <li><span class="ts">01:58</span><span>Card authorises. GoFundMe confirmation GF-8K2M-41Q on screen.</span></li>
+          <li><span class="ts">02:09</span><span>Receipt email arrives in the ledger inbox. Agent files it and closes the window.</span></li>
+        </ul>
+      </figure>
+
+      <div>
+        <div class="receipt" role="group" aria-label="Receipt for donation 0412-07">
+          <p class="receipt__title"><span>Donation #0412-07</span><span>paid · confirmed</span></p>
+          <dl>
+            <div class="row"><dt>Holder</dt><dd>nicu.eth · 0x7d2e…91af</dd></div>
+            <div class="row"><dt>Campaign</dt><dd>Maya’s NICU bills</dd></div>
+            <div class="row sub"><dt>Campaign URL</dt><dd>gofundme.com/f/mayas-nicu-bills</dd></div>
+            <div class="row"><dt>From fee sweep</dt><dd>#0412 · 14:17–14:32 UTC</dd></div>
+            <div class="row sub"><dt>Fee tx</dt><dd>0x8f3a2c…c21e</dd></div>
+            <div class="row"><dt>Gross share</dt><dd>$300.00</dd></div>
+            <div class="row minus"><dt>Tax reserve 20%</dt><dd>−$60.00</dd></div>
+            <div class="row total"><dt>Donated</dt><dd>$240.00</dd></div>
+            <div class="row sub"><dt>Card auth</dt><dd>14:33:41 UTC</dd></div>
+            <div class="row sub"><dt>GoFundMe confirmation</dt><dd>GF-8K2M-41Q</dd></div>
+            <div class="row sub"><dt>Appears on campaign as</dt><dd>“Pay It Forward holders (nicu.eth)”</dd></div>
+          </dl>
+          <p class="receipt__foot">Receipt email forwarded unedited to <a href="#">proofs/0412-07/receipt.eml</a>. Campaign page shows the donation publicly under the name above.</p>
+        </div>
+        <div class="verify">
+          <p class="label">Check it yourself, no trust required</p>
+          <ol>
+            <li>Open the fee tx on the Robinhood Chain explorer. Confirm 1,000.00 USDC landed in the creator wallet in that window.</li>
+            <li>Open the campaign page. Find the $240 donation under “Pay It Forward holders (nicu.eth)” at 14:33 UTC.</li>
+            <li>Watch the recording. The amount typed into the form should match both.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="all-title">
+    <div class="sec__head">
+      <h2 class="sec__title" id="all-title">Every donation</h2>
+      <p class="sec__aside">14 rows · newest first · <a href="#">export CSV</a></p>
+    </div>
+    <div class="table-scroll">
+    <table class="ledger proofs">
+      <thead><tr>
+        <th>Recording</th><th>Donation</th><th>Holder</th><th>Campaign</th><th class="num">Amount</th><th>GoFundMe confirmation</th><th>Fee tx</th><th>Status</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><div class="thumb">▶ 2:14</div></td><td class="id">#0412-07<small>21 Oct · 14:33 UTC</small></td><td class="holder">nicu.eth</td><td class="camp"><a href="#">Maya’s NICU bills ↗</a></td><td class="num">$240.00</td><td class="mono">GF-8K2M-41Q</td><td class="mono"><a href="#">0x8f3a…c21e</a></td><td><span class="status status--paid">paid</span></td></tr>
+        <tr><td><div class="thumb">▶ 1:51</div></td><td class="id">#0412-08<small>21 Oct · 14:34 UTC</small></td><td class="holder">deshawn-van</td><td class="camp"><a href="#">Wheelchair van for Deshawn ↗</a></td><td class="num">$99.20</td><td class="mono">GF-2T7X-90A</td><td class="mono"><a href="#">0x8f3a…c21e</a></td><td><span class="status status--paid">paid</span></td></tr>
+        <tr><td><div class="thumb">▶ 1:47</div></td><td class="id">#0412-09<small>21 Oct · 14:36 UTC</small></td><td class="holder">0xa41c…7f22</td><td class="camp"><a href="#">Rebuild the Larsen family home ↗</a></td><td class="num">$38.88</td><td class="mono muted">pending</td><td class="mono"><a href="#">0x8f3a…c21e</a></td><td><span class="status status--confirming">confirming</span></td></tr>
+        <tr><td><div class="thumb">▶ 2:02</div></td><td class="id">#0411-07<small>21 Oct · 14:18 UTC</small></td><td class="holder">nicu.eth</td><td class="camp"><a href="#">Maya’s NICU bills ↗</a></td><td class="num">$211.20</td><td class="mono">GF-7PQ1-3LD</td><td class="mono"><a href="#">0x61b0…4e9a</a></td><td><span class="status status--paid">paid</span></td></tr>
+        <tr><td><div class="thumb">▶ 1:58</div></td><td class="id">#0411-08<small>21 Oct · 14:19 UTC</small></td><td class="holder">hollis.rh</td><td class="camp"><a href="#">Ms. Okafor’s 3rd grade classroom ↗</a></td><td class="num">$59.40</td><td class="mono">GF-5HC8-22M</td><td class="mono"><a href="#">0x61b0…4e9a</a></td><td><span class="status status--paid">paid</span></td></tr>
+        <tr><td><div class="thumb">▶ 2:21</div></td><td class="id">#0411-09<small>21 Oct · 14:21 UTC</small></td><td class="holder">tanaka.eth</td><td class="camp"><a href="#">Laying Rosa Mendes to rest ↗</a></td><td class="num">$43.56</td><td class="mono">GF-9VV2-08R</td><td class="mono"><a href="#">0x61b0…4e9a</a></td><td><span class="status status--paid">paid</span></td></tr>
+        <tr><td><div class="thumb">▶ 1:39</div></td><td class="id">#0410-07<small>21 Oct · 14:03 UTC</small></td><td class="holder">0x19de…aa03</td><td class="camp"><a href="#">Surgery for Biscuit ↗</a></td><td class="num">$45.76</td><td class="mono">GF-1NB6-77K</td><td class="mono"><a href="#">0x2c8d…f013</a></td><td><span class="status status--paid">paid</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="ledger__foot"><span>Showing 7 of 14</span><span>One dispute to date: #0188, a $0.02 rounding difference, corrected in sweep #0189. <a href="#">Read the thread</a>.</span></p>
+  </section>
+</main>
+<footer class="colophon wrap">
+  <p><b>Pay It Forward ($PIF)</b> · Robinhood Chain · contract <a href="#">0x5c1e9a4f7b2d8e3c6a0f1b9d4e7c2a8f5b3d6e1c</a> · deployed block 4,018,772 · creator-fee wallet <a href="#">0x8f3a…c21e</a>. Every fee sweep, every per-holder split, and every outbound donation is computed by an agent running in a VM we do not have shell access to during a sweep. The VM screen is streamed continuously; recordings are kept and linked from <a href="proofs.html">Proofs</a>.</p>
+  <p><b>Money.</b> Creator fees are income to the developers. We hold back a tax reserve on every sweep (currently 20%, to be confirmed by our accountant and published here) and route the remainder to the GoFundMe campaigns nominated by holders, pro-rata to how much $PIF each wallet held and for how long during the sweep window. Donations to personal GoFundMe campaigns are gifts and are generally not tax-deductible for anyone. We are not a charity and do not take a cut beyond the tax reserve. Rate changes are announced on X before they take effect and logged below.</p>
+  <p><b>Verify.</b> Fee sweep tx hashes are on the explorer. Donation confirmations are GoFundMe's own receipt emails, shown unedited in each recording. If a number on this page disagrees with the chain or with GoFundMe, the chain and GoFundMe are right and we will fix the page. Report mistakes to <a href="#">ledger@payitforward.fund</a> or <a href="#">@payitforward</a>.</p>
+  <p>Agent: Claude, running in an isolated Linux VM · stream via Twitch + X · site built 2026-10-21 · commit <a href="#">8a62e58</a> · type set in Instrument Serif, IBM Plex Sans, IBM Plex Mono.</p>
+</footer>
+</body>
+</html>

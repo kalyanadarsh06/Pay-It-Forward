@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Pay It Forward · live ledger</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pif.css">
+</head>
+<body>
+<p class="mock-note">Design mockup · all figures are sample data · nothing here is live</p>
+<header class="mast wrap">
+  <p class="mast__status">
+    <span class="live">Agent stream live · <b>1,284</b> watching</span>
+    <span>Robinhood Chain · block <b>4,182,331</b></span>
+    <span>Last fee sweep <b>#0412</b> · 14:32:07 UTC</span>
+    <span>Next sweep in <b>11:53</b></span>
+    <span>PIF · <b>$0.00318</b> · mcap <b>$3.18M</b></span>
+  </p>
+  <div class="mast__row">
+    <h1 class="wordmark"><a href="index.html">Pay It Forward</a> <span class="ticker">$PIF</span></h1>
+    <nav class="mast__nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" aria-current="page">Ledger</a></li>
+        <li><a href="proofs.html" >Proofs</a></li>
+        <li><a href="#stream">Stream</a></li>
+        <li><a href="#how">How the math works</a></li>
+        <li><a href="https://x.com/payitforward" class="mono">@payitforward ↗</a></li>
+      </ul>
+    </nav>
+  </div>
+  <hr class="mast__rule" aria-hidden="true">
+</header>
+<main class="wrap">
+  <section class="hero" aria-labelledby="hero-fig">
+    <div>
+      <p class="label">Routed to holders' campaigns since 9 Oct 2026</p>
+      <p class="hero__figure" id="hero-fig"><span class="cur">$</span>18,462<span class="cents">.40</span></p>
+      <p class="hero__qualifier">Across <em>14 GoFundMe campaigns</em>, chosen by the people holding the coin. Every dollar below has a fee sweep, a split, and a receipt.</p>
+      <div class="hero__meta tnum">
+        <div><p class="label">Fees collected</p><p class="v">$23,078.00</p></div>
+        <div><p class="label">Tax reserve (20%)</p><p class="v muted">−$4,615.60</p></div>
+        <div><p class="label">Donated · confirmed</p><p class="v">$17,222.40</p></div>
+        <div><p class="label">Queued · awaiting auth</p><p class="v">$1,240.00</p></div>
+      </div>
+      <div class="hero__cta">
+        <a class="chip chip--accent" href="#stream">Watch the agent work</a>
+        <a class="chip" href="proofs.html">Check the receipts</a>
+        <a class="textlink" href="#how">How a 30% hold becomes a $240 donation →</a>
+      </div>
+    </div>
+
+    <aside class="term" aria-label="Live agent log">
+      <div class="term__head"><span><b>agent@pif-vm</b> · sweep #0412</span><span class="live">live</span></div>
+      <div class="term__body">
+<div><span class="t">14:32:07</span> fee sweep <span class="k">#0412</span> · window 14:17:00 → 14:32:00 (15 min)</div>
+<div><span class="t">14:32:07</span> creator fees in window: <span class="k">1,000.00 USDC</span></div>
+<div><span class="t">14:32:07</span>   tx 0x8f3a2c…c21e  · block 4,182,329 · confirmed ✓</div>
+<div><span class="t">14:32:08</span> snapshotting holders ≥ 0.50% … <span class="k">23 wallets</span></div>
+<div><span class="t">14:32:08</span> time-weighting over 15 one-minute samples</div>
+<div class="sum"><span class="t">14:32:08</span> ▸ 0x7d2e…91af (nicu.eth)</div>
+<div>           held 30.00% × 15/15 min  → weight <span class="k">0.3000</span></div>
+<div>           gross share  = 1,000.00 × 0.3000 = <span class="k">300.00</span></div>
+<div>           tax reserve  = 300.00 × 0.20     = <span class="w">−60.00</span></div>
+<div>           donation     = <span class="k">240.00</span> → gofundme.com/f/mayas-nicu-bills</div>
+<div><span class="t">14:32:09</span> queued donation <span class="k">#0412-07</span> · awaiting card auth</div>
+<div class="sum"><span class="t">14:32:09</span> ▸ 0x3b91…e4d0 (deshawn-van)</div>
+<div>           held 12.40% × 15/15 min  → weight 0.1240</div>
+<div>           gross 124.00 · reserve −24.80 · donation <span class="k">99.20</span></div>
+<div><span class="t">14:32:09</span> queued donation #0412-08</div>
+<div><span class="t">14:32:10</span> ▸ 0xa41c…7f22 (anon) held 8.10% × <span class="w">9/15 min</span> → weight 0.0486</div>
+<div>           gross 48.60 · reserve −9.72 · donation <span class="k">38.88</span></div>
+<div><span class="t">14:32:11</span> 20 wallets remaining … <span class="cursor"></span></div>
+      </div>
+      <div class="term__foot"><span>recording → <a href="proofs.html">proofs/0412</a></span><span>sum of splits must equal 1,000.00 · check runs at end</span></div>
+    </aside>
+  </section>
+
+  <section class="sec" id="how" aria-labelledby="how-title">
+    <div class="sec__head">
+      <h2 class="sec__title" id="how-title">How a hold becomes a donation</h2>
+      <p class="sec__aside">worked example · the same numbers the agent is computing above</p>
+    </div>
+    <div class="split">
+      <div class="prose">
+        <p>Every 15 minutes the agent sweeps the creator fees $PIF earned on Robinhood Chain. It snapshots every wallet holding at least half a percent, once a minute, and weights each wallet by how much it held and for how many of those minutes.</p>
+        <p>Your weight is your share of the sweep. A fixed tax reserve comes off the top, because the fees are taxable income to us before they ever reach a campaign. What is left goes to the GoFundMe campaign you nominated when you bought in. The agent fills in the donation form itself, on camera, and files the receipt.</p>
+        <p class="fn">Hold for only part of a window and your weight is prorated. Sell everything and your pending share goes to the pool, which is split across every other campaign in the next sweep. Nothing is ever held back for us beyond the reserve.</p>
+      </div>
+      <div class="receipt" role="group" aria-label="Receipt for sweep 0412, holder nicu.eth">
+        <p class="receipt__title"><span>Sweep #0412 · 14:17–14:32 UTC</span><span>holder nicu.eth</span></p>
+        <dl>
+          <div class="row"><dt>Creator fees collected in window</dt><dd>$1,000.00</dd></div>
+          <div class="row sub"><dt>Your average hold across 15 samples</dt><dd>30.00%</dd></div>
+          <div class="row sub"><dt>Minutes held in window</dt><dd>15 / 15</dd></div>
+          <div class="row"><dt>Weight (0.3000 × 15/15)</dt><dd>0.3000</dd></div>
+          <div class="row"><dt>Gross share</dt><dd>$300.00</dd></div>
+          <div class="row minus"><dt>Tax reserve at 20%</dt><dd>−$60.00</dd></div>
+          <div class="row total"><dt>To gofundme.com/f/mayas-nicu-bills</dt><dd>$240.00</dd></div>
+        </dl>
+        <p class="receipt__foot">Donation #0412-07 · card auth 14:33:41 · GoFundMe confirmation GF-8K2M-41Q · recording 2 m 14 s · fee tx 0x8f3a2c…c21e</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ledger" aria-labelledby="ledger-title">
+    <div class="sec__head">
+      <h2 class="sec__title" id="ledger-title">Who is holding, and <em>for whom</em></h2>
+      <p class="sec__aside">live · 23 wallets ≥ 0.50% · updated every minute · sorted by weight</p>
+    </div>
+    <div class="table-scroll">
+    <table class="ledger">
+      <thead><tr>
+        <th>#</th><th>Holder</th><th>Hold · weight</th><th class="num">Held for</th><th>Thesis</th><th>Campaign</th><th class="num">Routed so far</th><th>Last donation</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="rank">1</td><td class="holder">nicu.eth<small>0x7d2e…91af</small></td><td><div class="pct top"><span class="mono">30.00%</span><div class="bar"><i style="width:100%"></i></div></div></td><td class="num">6 d 03 h</td><td class="thesis">“My daughter spent 41 days in the NICU. I know exactly what these bills look like.”</td><td class="camp"><a href="#">Maya’s NICU bills ↗</a><small>$18,210 of $45,000 raised</small></td><td class="num">$5,538.72</td><td><span class="status status--queued">queued #0412-07</span></td></tr>
+        <tr><td class="rank">2</td><td class="holder">deshawn-van<small>0x3b91…e4d0</small></td><td><div class="pct"><span class="mono">12.40%</span><div class="bar"><i style="width:41%"></i></div></div></td><td class="num">4 d 19 h</td><td class="thesis">“A wheelchair van is freedom. Degens can fund freedom.”</td><td class="camp"><a href="#">Wheelchair van for Deshawn ↗</a><small>$31,004 of $62,000 raised</small></td><td class="num">$2,289.44</td><td><span class="status status--paid">paid 14:18</span></td></tr>
+        <tr><td class="rank">3</td><td class="holder">0xa41c…7f22<small>anon</small></td><td><div class="pct"><span class="mono">8.10%</span><div class="bar"><i style="width:27%"></i></div></div></td><td class="num">0 d 09 h</td><td class="thesis">“Lost my own place to a fire in ’19. Nobody showed up for us.”</td><td class="camp"><a href="#">Rebuild the Larsen family home ↗</a><small>$9,870 of $80,000 raised</small></td><td class="num">$412.16</td><td><span class="status status--confirming">confirming</span></td></tr>
+        <tr><td class="rank">4</td><td class="holder">hollis.rh<small>0xc2f0…1b88</small></td><td><div class="pct"><span class="mono">6.75%</span><div class="bar"><i style="width:22%"></i></div></div></td><td class="num">5 d 22 h</td><td class="thesis">“Teachers buy their own supplies. That’s insane. Fund the classroom.”</td><td class="camp"><a href="#">Ms. Okafor’s 3rd grade classroom ↗</a><small>$2,140 of $4,000 raised</small></td><td class="num">$1,601.90</td><td><span class="status status--paid">paid 14:18</span></td></tr>
+        <tr><td class="rank">5</td><td class="holder">0x19de…aa03<small>anon</small></td><td><div class="pct"><span class="mono">5.20%</span><div class="bar"><i style="width:17%"></i></div></div></td><td class="num">2 d 01 h</td><td class="thesis">“Vet bills shouldn’t decide whether a dog lives.”</td><td class="camp"><a href="#">Surgery for Biscuit ↗</a><small>$3,310 of $6,500 raised</small></td><td class="num">$788.03</td><td><span class="status status--paid">paid 14:18</span></td></tr>
+        <tr><td class="rank">6</td><td class="holder">tanaka.eth<small>0x6e77…0c4d</small></td><td><div class="pct"><span class="mono">4.95%</span><div class="bar"><i style="width:16%"></i></div></div></td><td class="num">6 d 03 h</td><td class="thesis">“Funeral costs hit the people least able to pay them.”</td><td class="camp"><a href="#">Laying Rosa Mendes to rest ↗</a><small>fully funded · $12,000</small></td><td class="num">$1,874.55</td><td><span class="status status--paid">paid 14:18</span></td></tr>
+        <tr><td class="rank">7</td><td class="holder">0xf0a2…55e9<small>anon</small></td><td><div class="pct"><span class="mono">3.30%</span><div class="bar"><i style="width:11%"></i></div></div></td><td class="num">1 d 14 h</td><td class="thesis">“Insulin. That’s the whole thesis.”</td><td class="camp"><a href="#">A year of insulin for Priya ↗</a><small>$1,980 of $7,200 raised</small></td><td class="num">$301.26</td><td><span class="status status--paid">paid 14:18</span></td></tr>
+        <tr><td class="rank">8</td><td class="holder">quietwhale<small>0x0b3c…9d71</small></td><td><div class="pct"><span class="mono">2.85%</span><div class="bar"><i style="width:9.5%"></i></div></div></td><td class="num">3 d 08 h</td><td class="thesis">“No thesis. Just want to see if this thing is real.”</td><td class="camp"><a href="#">Pool (split across all campaigns) ↗</a><small>no campaign nominated</small></td><td class="num">$640.12</td><td><span class="status status--paid">paid 14:18</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="ledger__foot"><span>Showing 8 of 23 · <a href="#">all wallets</a> · <a href="#">export CSV</a></span><span>Routed-so-far figures are net of the tax reserve. Weight = hold × fraction of window held.</span></p>
+  </section>
+
+  <section class="sec" id="stream" aria-labelledby="stream-title">
+    <div class="sec__head">
+      <h2 class="sec__title" id="stream-title">The agent, on camera, all day</h2>
+      <p class="sec__aside">twitch.tv/payitforward · mirrored to X · recordings kept forever</p>
+    </div>
+    <div class="stream">
+      <figure>
+        <div class="stream__frame"><span>LIVE STREAM EMBED<br>Twitch / X player goes here · 16:9 · the VM desktop, terminal and browser, nothing else</span></div>
+        <figcaption><span>sweep #0412 in progress · 03:12 elapsed</span><span>1,284 watching · 14:35:19 UTC</span></figcaption>
+      </figure>
+      <div class="stream__side">
+        <p class="big">If you can’t see it being done, assume it wasn’t.</p>
+        <p class="muted">The agent runs in a VM with one job. It reads the chain, does the arithmetic out loud, opens GoFundMe, pays, and files the receipt. Humans do not touch the keyboard during a sweep. If the stream drops, sweeps pause until it is back.</p>
+        <dl class="kv">
+          <dt>Uptime</dt><dd>12 d 06 h since first sweep</dd>
+          <dt>Sweeps</dt><dd>412 completed · 0 skipped</dd>
+          <dt>Disputes</dt><dd>1 raised · 1 resolved (#0188, rounding, +$0.02)</dd>
+          <dt>Model</dt><dd>Claude · tool access: explorer RPC, browser, card</dd>
+        </dl>
+        <a class="chip" href="#">Open stream ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="colophon wrap">
+  <p><b>Pay It Forward ($PIF)</b> · Robinhood Chain · contract <a href="#">0x5c1e9a4f7b2d8e3c6a0f1b9d4e7c2a8f5b3d6e1c</a> · deployed block 4,018,772 · creator-fee wallet <a href="#">0x8f3a…c21e</a>. Every fee sweep, every per-holder split, and every outbound donation is computed by an agent running in a VM we do not have shell access to during a sweep. The VM screen is streamed continuously; recordings are kept and linked from <a href="proofs.html">Proofs</a>.</p>
+  <p><b>Money.</b> Creator fees are income to the developers. We hold back a tax reserve on every sweep (currently 20%, to be confirmed by our accountant and published here) and route the remainder to the GoFundMe campaigns nominated by holders, pro-rata to how much $PIF each wallet held and for how long during the sweep window. Donations to personal GoFundMe campaigns are gifts and are generally not tax-deductible for anyone. We are not a charity and do not take a cut beyond the tax reserve. Rate changes are announced on X before they take effect and logged below.</p>
+  <p><b>Verify.</b> Fee sweep tx hashes are on the explorer. Donation confirmations are GoFundMe's own receipt emails, shown unedited in each recording. If a number on this page disagrees with the chain or with GoFundMe, the chain and GoFundMe are right and we will fix the page. Report mistakes to <a href="#">ledger@payitforward.fund</a> or <a href="#">@payitforward</a>.</p>
+  <p>Agent: Claude, running in an isolated Linux VM · stream via Twitch + X · site built 2026-10-21 · commit <a href="#">8a62e58</a> · type set in Instrument Serif, IBM Plex Sans, IBM Plex Mono.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pay It Forward · $PIF · the receipts</title>
+<meta name="description" content="Creator fees from $PIF on Robinhood Chain are donated to GoFundMe campaigns chosen by holders, computed and paid on camera by an agent, with a receipt for every dollar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/earthy.css">
+<link rel="stylesheet" href="styles.css">
+<script src="data/world.js"></script>
+<script src="data/sample.js"></script>
+</head>
+<body data-mode="tour">
+<a class="skip-link" href="#ledger-top">Skip to the ledger</a>
+
+<div class="shell">
+  <!-- ===== the field: where the agent lives ===== -->
+  <aside class="field" id="field" data-glow="0" aria-label="Earthy">
+    <div class="field__blobs" aria-hidden="true"><i class="blob blob--a"></i><i class="blob blob--b"></i><i class="blob blob--c"></i></div>
+    <a class="brand" href="#top"><span class="brand__name">Pay It Forward</span><span class="brand__sub">Agent-run giving on Robinhood Chain</span></a>
+
+    <div class="host">
+      <svg class="earthy" id="earthy" viewBox="0 0 200 200" data-mood="neutral" data-gesture="none" role="img" aria-label="Earthy, a smiling globe with little arms">
+        <defs>
+          <radialGradient id="e-sea" cx="36%" cy="30%" r="80%"><stop offset="0" stop-color="#7fdcff"/><stop offset="1" stop-color="#1e8fe6"/></radialGradient>
+          <clipPath id="e-clip"><circle cx="100" cy="104" r="72"/></clipPath>
+        </defs>
+        <g class="e-hand e-hand--l"><path class="e-arm" d="M50 130 Q32 142 30 162"/><circle class="e-palm" cx="30" cy="164" r="11"/><path class="e-spark" d="M12 122l-7-10M20 112l-2-12M6 136l-12-3"/></g>
+        <g class="e-body">
+          <circle class="e-skin" cx="100" cy="104" r="72"/>
+          <g class="e-land" clip-path="url(#e-clip)">
+            <path d="M58 38c16-12 38-8 46 4 6 9-4 19-16 20-11 2-25 10-32 1-6-7-7-18 2-25z"/>
+            <path d="M122 66c14-7 32-2 38 11 6 11 1 28-9 36-9 7-20 2-24-9-4-11-16-30-5-38z"/>
+            <path d="M40 98c11-5 24 2 26 15 2 13-6 28-19 32-11 4-22-6-22-19 0-13 4-23 15-28z"/>
+            <path d="M84 142c11-9 28-7 36 4 6 9 2 24-9 30-13 7-30 4-34-9-2-11 0-19 7-25z"/>
+            <path d="M134 152c8-5 19 0 21 8 2 9-6 15-15 13-9-2-13-15-6-21z"/>
+            <path d="M100 30c6-2 12 2 11 7-1 5-8 7-13 4-4-3-3-9 2-11z"/>
+          </g>
+          <circle class="e-rim" cx="100" cy="104" r="72"/>
+          <path class="e-brow e-brow--l" d="M70 72 L88 78"/><path class="e-brow e-brow--r" d="M130 72 L112 78"/>
+          <g class="e-eyes">
+            <g><ellipse class="e-eye" cx="84" cy="97" rx="9" ry="13"/><circle class="e-glint" cx="88" cy="91" r="3.2"/></g>
+            <g><ellipse class="e-eye e-eye--r" cx="120" cy="97" rx="9" ry="13"/><circle class="e-glint e-glint--r" cx="124" cy="91" r="3.2"/><path class="e-wink" d="M110 97 Q120 87 130 97"/></g>
+          </g>
+          <circle class="e-cheek" cx="66" cy="114" r="7"/><circle class="e-cheek" cx="138" cy="114" r="7"/>
+          <path class="e-mouth" id="earthy-mouth" d="M92 118 Q102 128 112 118"/>
+        </g>
+        <g class="e-hand e-hand--r"><path class="e-arm" d="M150 130 Q168 142 170 162"/><circle class="e-palm" cx="170" cy="164" r="11"/><path class="e-spark" d="M188 122l7-10M180 112l2-12M194 136l12-3"/></g>
+      </svg>
+      <p class="host__line" id="host-line" aria-live="polite"></p>
+      <nav class="field__nav caps" aria-label="Ledger">
+        <button id="replay">Replay Earthy</button>
+      </nav>
+    </div>
+
+    <div class="field__status">
+      <p class="caps live">Agent stream live</p>
+      <p class="display" id="field-sweep">Sweep in progress</p>
+      <p class="field__meta caps" id="field-meta"></p>
+    </div>
+  </aside>
+
+  <!-- ===== the document: the record ===== -->
+  <main class="doc" id="doc">
+    <div class="doc__top">
+      <nav class="doc__nav caps" aria-label="Primary">
+        <a href="#live" data-exit>Ledger</a><a href="#proofs" data-exit>Proofs</a><a id="nav-stream" href="#">Stream ↗</a><a id="nav-x" href="#">X ↗</a>
+      </nav>
+      <a class="spark" href="#top" aria-label="Pay It Forward"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg></a>
+    </div>
+
+    <div class="doc__inner">
+      <!-- ---------- tour ---------- -->
+      <div class="tour" id="tour" role="region" aria-label="Earthy’s guided first visit">
+        <div class="tour__bar">
+          <p class="caps soft" id="tour-count">Step 1 of 6</p>
+          <button class="tour__skip caps" id="tour-skip">Skip to the ledger</button>
+        </div>
+        <ol class="steps" id="steps" aria-label="Steps">
+          <li><button data-go="1" aria-label="The world as it is"></button></li>
+          <li><button data-go="2" aria-label="The last donation"></button></li>
+          <li><button data-go="3" aria-label="Where the money came from"></button></li>
+          <li><button data-go="4" aria-label="The last five minutes"></button></li>
+          <li><button data-go="5" aria-label="All of it"></button></li>
+          <li><button data-go="6" aria-label="The token"></button></li>
+        </ol>
+
+        <section class="step" data-step="0" aria-label="Hello">
+          <h2 class="step__title display">Receipts, not promises.</h2>
+          <p class="step__lede">I keep the books for Pay It Forward. Give me about a minute: the state of the world, where the last dollar went, how to join in. Everything here has a recording, a receipt, or a source.</p>
+          <div class="step__foot">
+            <button class="action" data-next><span>Show me</span><span class="arrow" aria-hidden="true">→</span></button>
+            <p class="step__meta"><span>About a minute · → advances · Esc skips</span><span class="caps">Sample data</span></p>
+          </div>
+        </section>
+
+        <section class="step" data-step="1" aria-label="The world as it is">
+          <h2 class="step__title display">The world as it is.</h2>
+          <div class="step__body">
+            <ol class="figures" id="figures"></ol>
+            <p class="closer rise" id="closer"></p>
+          </div>
+          <div class="step__foot">
+            <button class="action" data-next><span>What we do about it</span><span class="arrow" aria-hidden="true">→</span></button>
+            <p class="step__meta"><span>Latest figures published by each body. Sources are linked.</span><button class="quiet" data-back>Back</button></p>
+          </div>
+        </section>
+
+        <section class="step" data-step="2" aria-label="The last donation">
+          <h2 class="step__title display">The last donation, on camera.</h2>
+          <div class="step__body donation">
+            <figure class="rise">
+              <div class="rec" role="img" aria-label="Recording of the agent paying the donation. The card number is redacted.">
+                <div class="rec__log">
+<div><span class="k">▸</span> gofundme.com/f/mayas-nicu-bills</div>
+<div>  amount ← 240.00</div>
+<div>  name ← “Pay It Forward holders (nicu.eth)”</div>
+<div>  card ← <span class="rec__redact">redacted</span> · exp <span class="rec__redact">redacted</span></div>
+<div>  auth… confirmed GF-8K2M-41Q</div>
+                </div>
+                <div class="rec__play" aria-hidden="true"></div>
+                <div class="rec__bar caps"><span aria-hidden="true">00:48</span><span class="rec__tag" id="rec-tag"></span><div class="track" aria-hidden="true"><i></i></div><span aria-hidden="true" id="rec-len"></span></div>
+              </div>
+              <figcaption class="rec__cap"><span id="rec-cap"></span><span class="mono" id="rec-sha"></span></figcaption>
+            </figure>
+            <div class="receipt rise" role="group" aria-label="Receipt">
+              <dl>
+                <div class="row"><dt class="caps">Donation</dt><dd class="mono" id="rcpt-id"></dd></div>
+                <div class="row"><dt class="caps">To</dt><dd id="rcpt-campaign"></dd></div>
+                <div class="row"><dt class="caps">From</dt><dd id="rcpt-holder"></dd></div>
+                <div class="row"><dt class="caps">Paid</dt><dd id="rcpt-paid"></dd></div>
+                <div class="row"><dt class="caps">GoFundMe</dt><dd class="mono" id="rcpt-conf"></dd></div>
+                <div class="row"><dt class="caps">Fee tx</dt><dd class="mono" id="rcpt-tx"></dd></div>
+                <div class="row row--total"><dt class="caps">Donated</dt><dd id="rcpt-amount"></dd></div>
+              </dl>
+            </div>
+          </div>
+          <div class="step__foot">
+            <button class="action" data-next><span>Where the money came from</span><span class="arrow" aria-hidden="true">→</span></button>
+            <p class="step__meta"><span>Every donation has one of these. All of them are in Proofs.</span><button class="quiet" data-back>Back</button></p>
+          </div>
+        </section>
+
+        <section class="step" data-step="3" aria-label="Where the money came from">
+          <h2 class="step__title display">Where that $240 came from.</h2>
+          <div class="step__body">
+            <ol class="passes" id="passes"></ol>
+            <p class="passes__note">Creator fees are income to us, so a reserve covers the tax on them. Everything after the reserve goes where the holder pointed it. We don’t keep a cut.</p>
+          </div>
+          <div class="step__foot">
+            <button class="action" data-next><span>The last five minutes</span><span class="arrow" aria-hidden="true">→</span></button>
+            <p class="step__meta"><span>Weight = share of supply held × fraction of the window held.</span><button class="quiet" data-back>Back</button></p>
+          </div>
+        </section>
+
+        <section class="step" data-step="4" aria-label="The last five minutes">
+          <h2 class="step__title display">The last five minutes.</h2>
+          <div class="step__body">
+            <ol class="live-rows" id="top-rows"></ol>
+          </div>
+          <div class="step__foot">
+            <button class="action" data-next><span>All of it</span><span class="arrow" aria-hidden="true">→</span></button>
+            <p class="step__meta"><span id="top-window"></span><button class="quiet" data-back>Back</button></p>
+          </div>
+        </section>
+
+        <section class="step" data-step="5" aria-label="All of it">
+          <h2 class="step__title display">All of it, so far.</h2>
+          <div class="step__body">
+            <div class="stats" id="totals"></div>
+            <div class="stats__links caps"><a href="#leaderboard" data-exit>All-time leaderboard →</a><a href="#proofs" data-exit>Every proof →</a></div>
+          </div>
+          <div class="step__foot">
+            <button class="action" data-next><span>How to join</span><span class="arrow" aria-hidden="true">→</span></button>
+            <p class="step__meta"><span id="totals-since"></span><button class="quiet" data-back>Back</button></p>
+          </div>
+        </section>
+
+        <section class="step" data-step="6" aria-label="The token">
+          <h2 class="step__title display">Want your share to go somewhere real?</h2>
+          <p class="step__lede">Hold $PIF. Nominate a campaign. Your share of every sweep goes there, on camera, with a receipt.</p>
+          <div class="step__body">
+            <p class="caps soft">Token address · Robinhood Chain</p>
+            <div class="address-box rise"><span class="address" id="join-address"></span><button class="btn caps" id="copy-address">Copy</button></div>
+            <p class="join__note">Nominate your campaign from the ledger once you hold. Wallets with at least 0.5% of supply are counted in a sweep.</p>
+          </div>
+          <div class="step__foot">
+            <a class="action action--lime" id="join-buy" href="#"><span>Hold $PIF</span><span class="arrow" aria-hidden="true">→</span></a>
+            <p class="step__meta"><button class="quiet" data-exit data-target="#live">Enter the ledger instead</button><button class="quiet" data-back>Back</button></p>
+          </div>
+        </section>
+      </div>
+
+      <!-- ---------- ledger ---------- -->
+      <div class="ledger" id="ledger-top" tabindex="-1">
+        <h1 class="hero__title display">Every fee, every receipt.</h1>
+        <p class="hero__lede">$PIF’s creator fees go to GoFundMe campaigns chosen by the people holding it. An agent in a cloud VM does the math and pays, on a live stream, every fifteen minutes.</p>
+        <p class="hero__line caps" id="hero-line"></p>
+
+        <section class="section" id="live" aria-labelledby="live-title">
+          <div class="section__head"><h2 class="section__title display" id="live-title">Live ledger</h2><p class="section__aside caps" id="live-aside"></p></div>
+          <ol class="live-rows" id="live-rows"></ol>
+        </section>
+
+        <section class="section" aria-label="Totals">
+          <div class="stats" id="ledger-totals"></div>
+        </section>
+
+        <section class="section" id="leaderboard" aria-labelledby="lb-title">
+          <div class="section__head"><h2 class="section__title display" id="lb-title">Who is holding, and for whom</h2><p class="section__aside caps" id="lb-aside"></p></div>
+          <p class="table-hint">Scroll sideways for the full table →</p>
+          <div class="table-scroll">
+            <table class="board">
+              <thead><tr><th class="caps">#</th><th class="caps">Holder</th><th class="caps">Hold</th><th class="caps right">Held for</th><th class="caps">Thesis</th><th class="caps">Campaign</th><th class="caps right">Routed</th><th class="caps">Status</th></tr></thead>
+              <tbody id="lb-body"></tbody>
+            </table>
+          </div>
+          <p class="board__foot"><span id="lb-foot"></span><span>Routed figures are net of the reserve.</span></p>
+        </section>
+
+        <section class="section" id="proofs" aria-labelledby="pf-title">
+          <div class="section__head"><h2 class="section__title display" id="pf-title">Every donation, recorded</h2><p class="section__aside caps" id="pf-aside"></p></div>
+          <div class="gallery" id="gallery"></div>
+          <p class="board__foot"><span id="pf-foot"></span><span id="pf-dispute"></span></p>
+        </section>
+
+        <section class="section" aria-label="Token">
+          <p class="caps soft">Token address · Robinhood Chain</p>
+          <div class="address-box"><span class="address" id="site-address"></span><button class="btn caps" id="site-copy">Copy</button></div>
+          <a class="action action--lime" id="site-buy" href="#"><span>Hold $PIF</span><span class="arrow" aria-hidden="true">→</span></a>
+        </section>
+
+        <footer class="colophon">
+          <p><b>How the money moves.</b> Every <span id="col-mins"></span> minutes the agent sweeps the creator fees $PIF earned, weights every wallet holding at least <span id="col-min"></span> of supply by how much it held and for how long, holds back a <span id="col-rate"></span> reserve for the tax owed on that income, and donates each wallet’s share to the GoFundMe campaign that wallet nominated. The reserve rate is confirmed by our accountant and published here before it changes.</p>
+          <p><b>What we are not.</b> We are not a charity. Gifts to personal GoFundMe campaigns are generally not tax-deductible for anyone, including us. We don’t take a cut beyond the reserve. If a number here disagrees with the chain or with GoFundMe, they are right and we fix the page.</p>
+          <p><b>Verify.</b> Fee wallet <span class="mono" id="col-wallet"></span>. Sweep transactions are on the explorer; donation confirmations are GoFundMe’s own receipts, shown unedited in every recording. The agent runs in an isolated VM; humans don’t touch it during a sweep. Disputes: <span id="col-disputes"></span>.</p>
+          <p id="col-sample"></p>
+          <p class="colophon__row caps"><span>© 2026 Pay It Forward</span><a href="#">Terms</a><a href="#">Sources</a><a id="col-x" href="#">X ↗</a></p>
+        </footer>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
